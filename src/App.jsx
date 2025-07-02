@@ -1,10 +1,10 @@
+import { AppRoutes } from "../src/routers/AppRouter";
+
 function App() {
-  
   return (
     <>
-      <h1 className="text-red-400">Sarah Bolsas</h1>
+      <AppRoutes/>
     </>
   )
 }
-
 export default App
