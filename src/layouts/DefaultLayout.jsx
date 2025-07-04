@@ -1,13 +1,24 @@
 import { Outlet } from "react-router";
 import Navbar from "../components/navbar/Navbar";
+import NavbarMobile from "../components/navbar/NavbarMobile";
 import Footer from "../components/footer/Footer";
+import FooterMobile from "../components/footer/FooterMobile";
 import InfoStrip from "../components/infoStrip/InfoStrip";
+
+import useWindowSize from "../hooks/useWindowSize";
 export default function DefaultLayout() {
+
+    const { width } = useWindowSize();
+
+    const isDesktop = width >= 1024;
+
     return (
         <>
             <header>
                 <InfoStrip />
-                <Navbar />
+                {
+                    isDesktop ? <Navbar /> : <NavbarMobile />
+                }
             </header>
 
             <main>
@@ -15,7 +26,9 @@ export default function DefaultLayout() {
             </main>
 
             <footer>
-                <Footer />
+                {
+                    isDesktop ? <Footer /> : <FooterMobile/>
+                }
             </footer>
         </>
     );
