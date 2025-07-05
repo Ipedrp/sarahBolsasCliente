@@ -1,4 +1,4 @@
-import bannerHome from "../../../public/assets/images/bannerHome2.webp";
+import bannerHome from "../../../public/assets/images/bannerHome.webp";
 
 export default function BannerHome() {
   return (

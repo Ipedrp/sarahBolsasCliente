@@ -2,7 +2,7 @@ import { FaRegCopyright, FaFacebook, FaInstagram, FaYoutube } from "react-icons/
 
 export default function Footer() {
     return (
-        <footer className="bg-red-900 text-white">
+        <footer className="bg-red-900 text-white mt-2 lg:mt-10">
             <div className="relative h-40 bg-[url('/assets/images/couro-footer.jpg')] bg-cover bg-center text-white [font-family:'Jost',sans-serif] text-3xl flex justify-around items-center">
                 <div className="absolute inset-0 bg-black/50 z-0" />
                 

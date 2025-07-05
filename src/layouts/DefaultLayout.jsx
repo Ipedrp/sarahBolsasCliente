@@ -4,7 +4,7 @@ import NavbarMobile from "../components/navbar/NavbarMobile";
 import Footer from "../components/footer/Footer";
 import FooterMobile from "../components/footer/FooterMobile";
 import InfoStrip from "../components/infoStrip/InfoStrip";
-
+import BannerHome from "../components/banner/BannerHome";
 import useWindowSize from "../hooks/useWindowSize";
 export default function DefaultLayout() {
 
@@ -19,15 +19,17 @@ export default function DefaultLayout() {
                 {
                     isDesktop ? <Navbar /> : <NavbarMobile />
                 }
+                <BannerHome />
             </header>
 
-            <main>
+            <main className="flex w-[80%] mx-auto justify-center">
                 <Outlet />
             </main>
 
+
             <footer>
                 {
-                    isDesktop ? <Footer /> : <FooterMobile/>
+                    isDesktop ? <Footer /> : <FooterMobile />
                 }
             </footer>
         </>
