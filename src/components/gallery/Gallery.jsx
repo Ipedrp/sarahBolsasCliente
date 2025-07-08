@@ -1,6 +1,6 @@
 export default function Gallery() {
     return (
-        <section className="flex flex-col items-center gap-10  my-10 p-4">
+        <section className="flex flex-col items-center gap-10 w-[80%] my-10 p-4 mx-auto">
             <h2 className="[font-family:'Inter',sans-serif] text-xl font-bold text-center">
                 Luxuoso e Elegante
             </h2>

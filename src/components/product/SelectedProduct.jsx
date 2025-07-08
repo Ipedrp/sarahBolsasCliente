@@ -52,7 +52,7 @@ export default function SelectedProduct({ title, products }) {
                 ))}
             </div>
 
-            <button className="bg-red-900 inline-block w-xxs px-4 py-2 rounded-xl [font-family:'Inter',sans-serif] text-white font-medium cursor-pointer">
+            <button className="bg-red-900 inline-block w-xxs px-4 py-2 rounded-xl [font-family:'Inter',sans-serif] text-white font-medium cursor-pointer hover:bg-red-800">
                 Ver mais
             </button>
         </section>

@@ -1,6 +1,7 @@
 import SelectedProduct from "../../components/product/SelectedProduct";
 import Gallery from "../../components/gallery/Gallery";
-
+import ProductIntro from "../../components/product/ProductIntro"
+import BannerHome from "../../components/banner/BannerHome";
 const produtosWomen = [
     {
         id: 1,
@@ -58,10 +59,11 @@ const produtosMen = [
 export default function Home() {
     return (
         <div>
+            <BannerHome />
             <SelectedProduct title={"Nova Coleção | Verão 2025"} products={produtosWomen} />
             <Gallery />
             <SelectedProduct title={"Nova Coleção | Bolsa Carteiro"} products={produtosMen} />
-            <h1>Compre aqui no Home tela</h1>
+            <ProductIntro />
         </div>
     )
 }
