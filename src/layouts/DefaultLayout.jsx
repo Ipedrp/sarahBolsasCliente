@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router";
+import { Outlet } from "react-router";
 import Navbar from "../components/navbar/Navbar";
 import NavbarMobile from "../components/navbar/NavbarMobile";
 import Footer from "../components/footer/Footer";
@@ -11,7 +11,6 @@ export default function DefaultLayout() {
     const { width } = useWindowSize();
 
     const isDesktop = width >= 1024;
-    const isHome = location.pathname === "/";
 
 
     return (
