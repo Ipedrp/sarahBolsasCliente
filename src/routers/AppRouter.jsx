@@ -4,6 +4,8 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Contact from '../pages/contact/Contact';
+import Login from '../pages/login/Login';
+
 // import ProtectedRouter from '../components/protected/ProtectedRouter';
 // Depois fazer o ProtectedRouter para proteger rotas de compras e minha conta
 
@@ -14,6 +16,7 @@ export function AppRoutes() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login/>}/>
             </Route>
         </Routes>
     );

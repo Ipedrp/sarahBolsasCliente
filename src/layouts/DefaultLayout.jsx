@@ -22,7 +22,7 @@ export default function DefaultLayout() {
                 }
             </header>
 
-            <main className="flex w-full mx-auto justify-center">
+            <main className="flex w-full">
                 <Outlet />
             </main>
 

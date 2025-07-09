@@ -31,7 +31,7 @@ export default function Contact() {
 
       <div>
         <h2 className="text-center text-2xl mb-8">Precisa de Ajuda ?</h2>
-        <form className="max-w-md md:max-w-lg mx-auto">
+        <form className="border p-6 border-gray-400 rounded-lg max-w-md md:max-w-lg mx-auto">
           {/* Input */}
           <div className="relative z-0 w-full mb-5 group">
             <input
@@ -105,12 +105,14 @@ export default function Contact() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="text-white bg-red-900 hover:bg-red-800 focus:ring-4 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center cursor-pointer"
-          >
-            Enviar
-          </button>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className=" text-white bg-red-900 hover:bg-red-800 focus:ring-4 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center cursor-pointer"
+            >
+              Enviar
+            </button>
+          </div>
         </form>
       </div>
     </section>
