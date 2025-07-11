@@ -7,7 +7,7 @@ import Contact from '../pages/contact/Contact';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import MyAcount from '../pages/myAcount/MyAcount';
-
+import Promotion from '../pages/promotion/Promotion';
 // import ProtectedRouter from '../components/protected/ProtectedRouter';
 // Depois fazer o ProtectedRouter para proteger rotas de compras e minha conta
 
@@ -21,6 +21,7 @@ export function AppRoutes() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/myAcount" element={<MyAcount/>}/>
+                <Route path="/promotion" element={<Promotion/>}/>
             </Route>
         </Routes>
     );
