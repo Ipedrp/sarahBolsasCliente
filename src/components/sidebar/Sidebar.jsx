@@ -1,8 +1,8 @@
 // Sidebar.jsx
 import { IoMdClose } from "react-icons/io";
-import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { Link, useLocation } from "react-router";
-import { navLinks } from "../constants/navLinks";
+import { navLinks } from "../../constants/NavLinks";
+
 export default function Sidebar({ onClose }) {
     const location = useLocation();
 
@@ -21,7 +21,7 @@ export default function Sidebar({ onClose }) {
                         <li
                             className={`cursor-pointer border-b pb-2 ${
                                 location.pathname === path
-                                    ? "border-red-900 text-red-900"
+                                    ? "border-red-900"
                                     : "border-gray-300"
                             }`}
                         >
