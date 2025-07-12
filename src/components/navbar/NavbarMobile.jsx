@@ -1,10 +1,37 @@
-import { useState } from "react";
-import { FaBars } from "react-icons/fa";
-import { CiShoppingCart, CiUser } from "react-icons/ci";
+import { useState, useRef, useEffect } from "react";
+import { CiShoppingCart, CiUser, CiLogout, CiMenuBurger  } from "react-icons/ci";
 import Sidebar from "../sidebar/Sidebar";
-
+import { perfilLinks } from "../../constants/perfilLinks";
+import { Link } from "react-router";
 export default function NavbarMobile() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const [openDropdownPerfil, setOpenDropdownPerfil] = useState(false);
+    const dropdownPerfilRef = useRef(null);
+
+    const togglePerfilDropdown = () => {
+        setOpenDropdownPerfil((prev) => !prev);
+    };
+
+    // Fecha os dropdowns ao clicar fora
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+
+            if (
+                dropdownPerfilRef.current && !dropdownPerfilRef.current.contains(event.target)
+            ) {
+                setOpenDropdownPerfil(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Fecha os dropdowns ao mudar de rota
+    useEffect(() => {
+        setOpenDropdownPerfil(false);
+    }, [location.pathname]);
 
     return (
         <>
@@ -14,11 +41,28 @@ export default function NavbarMobile() {
                 </h1>
 
                 <div className="flex justify-between items-center w-full px-6">
-                    <FaBars size={20} className="cursor-pointer" onClick={() => setSidebarOpen(true)} />
+                    <CiMenuBurger  size={20} className="cursor-pointer" onClick={() => setSidebarOpen(true)} />
 
                     <ul className="flex gap-3 items-center">
-                        <li>
-                            <CiUser size={20} className="cursor-pointer" />
+                        <li className="relative" ref={dropdownPerfilRef}>
+                            {/* Ícone de usuário com dropdown */}
+                            <CiUser size={20} className="cursor-pointer" onClick={togglePerfilDropdown} />
+
+                            {openDropdownPerfil && (
+                                <ul className="absolute right-0 top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 overflow-hidden">
+                                    <li className="px-4 py-2 bg-red-900 text-white">Olá, Pedro Paulo</li>
+                                    {perfilLinks[0].submenu.map(({ label, path }) => (
+                                        <li key={path} className="px-4 py-2 hover:bg-gray-100">
+                                            <Link to={path}>{label}</Link>
+                                        </li>
+                                    ))}
+                                    <li className="flex gap-2 justify-between items-center hover:bg-gray-100 px-4 py-2">
+                                        <p>Sair</p>
+                                        <p><CiLogout /></p>
+                                    </li>
+                                </ul>
+                            )}
+
                         </li>
                         <li className="relative cursor-pointer">
                             <CiShoppingCart size={20} />
