@@ -4,6 +4,7 @@ import NavbarMobile from "../components/navbar/NavbarMobile";
 import Footer from "../components/footer/Footer";
 import FooterMobile from "../components/footer/FooterMobile";
 import InfoStrip from "../components/infoStrip/InfoStrip";
+import WhatsAppButton from "../components/whatsAppButton/WhatsAppButton";
 import useWindowSize from "../hooks/useWindowSize";
 
 export default function DefaultLayout() {
@@ -25,6 +26,7 @@ export default function DefaultLayout() {
             <main className="flex w-full">
                 <Outlet />
             </main>
+            <WhatsAppButton />
 
             <footer>
                 {
