@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { Link, useLocation } from "react-router";
-import { navLinks } from "../../constants/navLinks";
+import { navLinks } from "../../constants/pageNavigationLinks";
 
 export default function Sidebar({ onClose }) {
     const location = useLocation();

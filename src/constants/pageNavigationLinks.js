@@ -23,3 +23,12 @@ export const navLinks = [
   { label: "Entrar em Contato", path: "/contact" },
   { label: "Rastrear Produto", path: "/track" },
 ];
+
+export const perfilLinks = [
+  {
+    submenu: [
+      { label: "Entrar", path: "/login" },
+      { label: "Cadastrar", path: "/register" },
+    ],
+  },
+];

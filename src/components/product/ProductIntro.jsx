@@ -1,6 +1,6 @@
 export default function ProductIntro() {
     return (
-        <section className="flex flex-col md:flex-row md:gap-8 bg-gray-100 w-full md:w-[75%] h-auto mx-auto rounded-2xl p-2 md:p-10">
+        <section className="flex flex-col lg:flex-row md:gap-8 bg-gray-100 w-full md:w-[75%] h-auto mx-auto rounded-2xl p-2 md:p-10">
             <figure className="flex-1">
                 <img
                     src="../../../public/assets/images/Image.png"

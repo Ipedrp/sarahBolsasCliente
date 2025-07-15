@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { CiShoppingCart, CiUser, CiLogout, CiMenuBurger  } from "react-icons/ci";
 import Sidebar from "../sidebar/Sidebar";
-import { perfilLinks } from "../../constants/perfilLinks";
+import { perfilLinks } from "../../constants/pageNavigationLinks";
 import { Link } from "react-router";
+
 export default function NavbarMobile() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 

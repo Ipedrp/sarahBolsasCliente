@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { CiSearch, CiShoppingCart, CiUser, CiLogout } from "react-icons/ci";
 import { Link, useLocation } from "react-router";
-import { navLinks } from "../../constants/navLinks";
-import { perfilLinks } from "../../constants/perfilLinks";
+import { navLinks, perfilLinks } from "../../constants/pageNavigationLinks";
 
 export default function Navbar() {
     const location = useLocation();
@@ -108,7 +107,7 @@ export default function Navbar() {
                                 </button>
 
                                 {openDropdown === label && (
-                                    <ul className="absolute top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50">
+                                    <ul className="absolute top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 overflow-hidden">
                                         {submenu.map((item) => (
                                             <li key={item.path} className="px-4 py-2 hover:bg-gray-100 bg-">
                                                 <Link to={item.path}>{item.label}</Link>
