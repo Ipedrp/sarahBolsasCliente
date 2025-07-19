@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { CiSearch, CiShoppingCart, CiUser, CiLogout } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 import { Link, useLocation } from "react-router";
 import { navLinks, perfilLinks } from "../../constants/pageNavigationLinks";
 
@@ -7,9 +8,11 @@ export default function Navbar() {
     const location = useLocation();
     const [openDropdown, setOpenDropdown] = useState(null);
     const [openDropdownPerfil, setOpenDropdownPerfil] = useState(false);
+    const [openModalShoppingCart, setOpenModalShoppingCart] = useState(null)
 
     const dropdownRef = useRef(null);
     const dropdownPerfilRef = useRef(null);
+    const modalShoppingCartRef = useRef(null);
 
     const toggleDropdown = (label) => {
         setOpenDropdown((prev) => (prev === label ? null : label));
@@ -17,6 +20,10 @@ export default function Navbar() {
 
     const togglePerfilDropdown = () => {
         setOpenDropdownPerfil((prev) => !prev);
+    };
+
+    const toggleModalShoppingCart = () => {
+        setOpenModalShoppingCart((prev) => !prev);
     };
 
     // Fecha os dropdowns ao clicar fora
@@ -33,6 +40,12 @@ export default function Navbar() {
             ) {
                 setOpenDropdownPerfil(false);
             }
+
+            if (
+                modalShoppingCartRef.current && !modalShoppingCartRef.current.contains(event.target)
+            ) {
+                setOpenModalShoppingCart(false);
+            }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
@@ -43,6 +56,7 @@ export default function Navbar() {
     useEffect(() => {
         setOpenDropdown(null);
         setOpenDropdownPerfil(false);
+        setOpenModalShoppingCart(false);
     }, [location.pathname]);
 
     return (
@@ -80,10 +94,44 @@ export default function Navbar() {
 
                     {/* Carrinho */}
                     <div className="relative cursor-pointer">
-                        <CiShoppingCart size={30} />
+                        <CiShoppingCart size={30} onClick={toggleModalShoppingCart} />
                         <div className="absolute -bottom-2 -right-2 flex justify-center items-center rounded-full bg-black text-white w-[20px] h-[20px] text-xs">
                             48
                         </div>
+                        {openModalShoppingCart && (
+                            <ul className="[font-family:'Jost',sans-serif] absolute right-0 top-full mt-2 w-72 bg-white shadow-md border rounded-md z-50 overflow-hidden">
+
+                                {/* HEADER */}
+                                <li className="flex justify-between items-center bg-white  font-semibold px-4 py-3">
+                                    <p> Itens Selecionados</p>
+                                    <IoMdClose className="hover:bg-red-900 hover:text-white rounded-full" onClick={toggleModalShoppingCart} />
+                                </li>
+
+                                {/* CONTEÚDO COM SCROLL */}
+                                <div className=" max-h-74 overflow-y-auto custom-scroll">
+                                    {[1, 2].map((_, i) => (
+                                        <li key={i} className="px-4 py-2 bg-white border-b">
+                                            <img className="rounded-xl w-full" src="../../../public/assets/images/bolsaPreta.png" alt="" />
+                                            <div className="flex flex-row gap-2 justify-center p-3">
+                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">+</p>
+                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">01</p>
+                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">-</p>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </div>
+
+                                {/* FOOTER */}
+                                <li className="px-4 py-3 bg-white font-semibold">
+                                    <p className="text-sm">Total de Item(s): 10</p>
+                                    <p>Valor Total: R$ 499.671,31</p>
+                                    <button className="bg-red-900 text-white w-full p-2 rounded-md mt-2 hover:bg-red-800 hover:cursor-pointer">
+                                        Finalizar Comprar
+                                    </button>
+                                </li>
+                            </ul>
+                        )}
+
                     </div>
                 </div>
             </div>

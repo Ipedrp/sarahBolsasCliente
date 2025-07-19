@@ -58,12 +58,14 @@ const produtosMen = [
 
 export default function Home() {
     return (
-        <div>
+        <section>
             <BannerHome />
-            <SelectedProduct title={"Nova Coleção | Verão 2025"} products={produtosWomen} />
-            <Gallery />
-            <SelectedProduct title={"Nova Coleção | Bolsa Carteiro"} products={produtosMen} />
-            <ProductIntro />
-        </div>
+            <div className="flex flex-col gap-10 [font-family:'Jost',sans-serif] w-[90%] min-h-[calc(100vh-120px)] my-10 mx-auto">
+                <SelectedProduct title={"Nova Coleção | Verão 2025"} products={produtosWomen} />
+                <Gallery />
+                <SelectedProduct title={"Nova Coleção | Bolsa Carteiro"} products={produtosMen} />
+                <ProductIntro />
+            </div>
+        </section>
     )
 }

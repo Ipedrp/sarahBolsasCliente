@@ -1,7 +1,8 @@
 export default function SelectedProduct({ title, products }) {
 
     return (
-        <section className="flex flex-col items-center gap-10 my-10 p-4">
+        <section className="flex flex-col items-center gap-10 w-[98%] mx-auto my-10 p-4">
+            
             <h2 className="[font-family:'Inter',sans-serif] text-xl font-bold text-center">
                 {title}
             </h2>
