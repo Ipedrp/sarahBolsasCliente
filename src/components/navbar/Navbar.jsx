@@ -107,15 +107,33 @@ export default function Navbar() {
                                     <IoMdClose className="hover:bg-red-900 hover:text-white rounded-full" onClick={toggleModalShoppingCart} />
                                 </li>
 
-                                {/* CONTEÚDO COM SCROLL */}
-                                <div className=" max-h-74 overflow-y-auto custom-scroll">
-                                    {[1, 2].map((_, i) => (
-                                        <li key={i} className="px-4 py-2 bg-white border-b">
-                                            <img className="rounded-xl w-full" src="../../../public/assets/images/bolsaPreta.png" alt="" />
-                                            <div className="flex flex-row gap-2 justify-center p-3">
-                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">+</p>
-                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">01</p>
-                                                <p className="bg-red-900 w-10 text-center text-white rounded-2xl cursor-pointer hover:bg-red-800">-</p>
+                                <div className="max-h-74 overflow-y-auto custom-scroll">
+                                    {[...Array(3)].map((_, i) => (
+                                        <li key={i} className="px-4 py-4 bg-white border-b">
+                                            <div className="flex gap-4">
+                                                {/* Imagem */}
+                                                <img
+                                                    className="rounded-xl w-24 h-24 object-cover"
+                                                    src="../../../public/assets/images/bolsaPreta.png"
+                                                    alt=""
+                                                />
+
+                                                {/* Conteúdo texto + botões */}
+                                                <div className="flex flex-col justify-between w-full">
+                                                    {/* Texto com limite de linhas */}
+                                                    <div className="text-sm text-gray-700 max-h-20 overflow-hidden">
+                                                        <p className="line-clamp-2">Bolsa Feminina couro preta.</p>
+                                                        <p className="line-clamp-1">Cor: Preto</p>
+                                                        <p className="line-clamp-1 font-medium">R$: 923.32</p>
+                                                    </div>
+
+                                                    {/* Botões de quantidade */}
+                                                    <div className="flex gap-2 justify-start mt-2">
+                                                        <button className="bg-red-900 w-6 h-6 text-white rounded-full hover:bg-red-800 text-sm">+</button>
+                                                        <span className="bg-red-900 w-6 h-6 text-white rounded-full text-center flex items-center justify-center text-sm">01</span>
+                                                        <button className="bg-red-900 w-6 h-6 text-white rounded-full hover:bg-red-800 text-sm">-</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </li>
                                     ))}
